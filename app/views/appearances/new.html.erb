@@ -1,0 +1,15 @@
+<h2>New Appearance</h2>
+<h3><%= @guest.name %></h3>
+<br>
+<%= form_for [@guest, @appearance] do |f| %>
+  <%= f.label "Rating" %>
+  <%= f.number_field :rating %>
+ <br><br>
+  <% @episodes.each do |episode| %>
+    <p>
+      <%= f.label ("Episode " + episode.number.to_s) %>
+      <%= f.radio_button :episode_id, episode.id %>
+    </p>
+  <% end %>
+  <%= f.submit "Make Appearance!" %>
+<% end %>

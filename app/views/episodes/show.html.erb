@@ -1,0 +1,11 @@
+<h4>Appearances:</h4>
+
+<% if !@episode.appearances.empty?%>
+  <% @episode.appearances.each do |appearance| %>
+    <%= "Guest Name: #{appearance.guest.name}" %>
+    <br>
+    <%= "Rating: #{appearance.rating}" %>
+  <% end %>
+<% else %>
+  <p>No appearances yet!</p>
+<% end %>

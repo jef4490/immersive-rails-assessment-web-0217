@@ -1,3 +1,16 @@
 <h1>Guest Deets:</h1>
 <p>Name: <%= @guest.name %></p>
 <p>Occupation: <%= @guest.occupation %></p>
+
+<% if !@guest.appearances.empty?%>
+  <% @guest.appearances.each do |appearance| %>
+    <%= "Episode Number: #{appearance.episode.number}" %>
+    <br>
+    <%= "Rating: #{appearance.rating}" %>
+  <% end %>
+<% else %>
+  <p>No appearances yet!</p>
+<% end %>
+
+<br><br>
+<%= link_to "Create New Appearance", new_guest_appearance_path(@guest) %>
